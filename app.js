@@ -22,6 +22,8 @@ class ForgedAttend {
 
   init() {
     let time = 0
+    this.attendRedress()
+    this.attendCollect()
     setInterval(() => {
       this.attendRedress()
       if (time % 5 === 0) {
