@@ -17,16 +17,18 @@ let options = {
   }
 }
 
-let attendRedressUrl = 'https://open.shiguangkey.com/api/attend/attendRedress'
-let attendCollectUrl = `https://attend.shiguangkey.com/api/attend/collect?${qs.stringify(params)}`
+let _attendRedressUrl = 'https://open.shiguangkey.com/api/attend/attendRedress'
+let _attendCollectUrl = `https://attend.shiguangkey.com/api/attend/collect?${qs.stringify(params)}`
 
+
+options.url = _attendCollectUrl
 requestPromise(options).then(res => {
   let result = JSON.parse(res.body)
   if (result.msg == 'success') {
-    console.log("正在上课中", result.msg)
+    console.log("正在上课中....")
   } else {
-    console.log("上课失败", res.body)
+    console.log("上课失败", result.msg)
   }
 }).catch(e => {
-  console.log("上课失败");
+  console.log("上课失败", e);
 })
