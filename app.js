@@ -61,7 +61,7 @@ class ForgedAttend {
 
 
 new ForgedAttend({
-  'courseId': 7277,                           //你的课程id
-  'classId': 28249,                           //你的课类id
+  'courseId': 7277,                 //你的课程id
+  'classId': 28249,                 //你的课类id
   'token': '700c1b500----2a21e59b2' //你的账号token
 })
