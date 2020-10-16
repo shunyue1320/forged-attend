@@ -5,7 +5,7 @@ const requestPromise = util.promisify(request)
 
 class ForgedAttend {
   constructor(options) {
-    let { courseId, classId, token } = options
+    const { courseId, classId, token } = options
 
     this.params = { courseId, classId }
     this.reqOptions = {
@@ -22,13 +22,13 @@ class ForgedAttend {
 
   init() {
     let time = 0
-    this.attendRedress()
     this.attendCollect()
+    this.attendRedress()
     setInterval(() => {
-      this.attendRedress()
       if (time % 5 === 0) {
         this.attendCollect()
       }
+      this.attendRedress()
       time++
     }, 1000 * 60)
   }
