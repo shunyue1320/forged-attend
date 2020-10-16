@@ -45,17 +45,18 @@ class ForgedAttend {
     this.request(options)
   }
 
-  request(options) {
-    requestPromise(options).then(res => {
-      let result = JSON.parse(res.body)
-      if (result.msg == 'success') {
+  async request(options) {
+    try {
+      const result = await requestPromise(options)
+      const data = JSON.parse(result.body)
+      if (data.msg == 'success') {
         console.log("正在上课中....")
       } else {
-        console.log("上课失败", result.msg)
+        console.log("上课失败", data.msg)
       }
-    }).catch(e => {
-      console.log("上课失败", e);
-    })
+    } catch(e) {
+      console.log("错误提示", e)
+    }
   }
 }
 
